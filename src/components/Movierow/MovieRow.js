@@ -1,8 +1,8 @@
 import React from 'react';
 import './MovieRow.css';
 
-// eslint-disable-next-line
-export default ({title, items}) =>{
+
+const MovieRow = ({title, items}) =>{
   
   return(  
     <div className="movieRow">
@@ -11,7 +11,7 @@ export default ({title, items}) =>{
        <div className="movieRow-list">
         {items.results.length > 0 && items.results.map((item,key)=>(
           <div key={key} className="movieRow-item"> 
-            <img  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} item={item.original_title}/>
+            <img  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title}/>
           </div>
         ))}
        </div>
@@ -19,3 +19,4 @@ export default ({title, items}) =>{
     </div>
   );
 }
+export default MovieRow;

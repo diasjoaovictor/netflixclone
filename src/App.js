@@ -2,12 +2,12 @@ import React, { useEffect, useState} from 'react';
 import MovieRow from './components/Movierow/MovieRow';
 import Tmdb from './Tmdb';
 import  './App.css';
-import FeaturedMovie from './components/FeaturedMovie/FeaturedMovie';
+//import FeaturedMovie from './components/FeaturedMovie/FeaturedMovie';
 
-export default () => {
+const App = () => {
   
   const [movieList, setMovieList] = useState([]);
-  const [featuredData, setfeaturedData] = useState(null);
+  // const [featuredData, setfeaturedData] = useState(null);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -16,11 +16,11 @@ export default () => {
       setMovieList(list);
 
       //Pegando filmes em destaque
-      let topRated = list.filter(i=>i.slug === 'toprated');
-      let randomChosen = Math.floor(Math.random() * (topRated[0].items.results.length -1));
-      let chosen = topRated[0].items.results[randomChosen];
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id,'tv');
-      setfeaturedData(chosenInfo);
+      // let topRated = list.filter(i=>i.slug === 'toprated');
+      // let randomChosen = Math.floor(Math.random() * (topRated[0].items.results.length -1));
+      // let chosen = topRated[0].items.results[randomChosen];
+      // let chosenInfo = await Tmdb.getMovieInfo(chosen.id,'tv');
+      // setfeaturedData(chosenInfo);
     }
 
     loadAll();
@@ -43,3 +43,5 @@ export default () => {
   )
 
 }
+
+export default App;
